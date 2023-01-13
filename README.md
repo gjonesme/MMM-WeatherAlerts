@@ -17,10 +17,13 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 To install this module via CLI, navigate into ~/MagicMirror/modules and type the following commands:
 
+```
 git clone https://github.com/gjonesme/MMM-WeatherAlerts
-cd MMM-WeatherAlerts
-npm install
+```
 
+```
+cd MMM-WeatherAlerts && npm install
+```
 
 # Configuration Options
 
