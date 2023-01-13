@@ -1,0 +1,66 @@
+{% if alerts %}
+{% set numAlerts = alerts | calcNumAlerts %}
+    {% set currentAlert = 0 %}
+    <table class="{{ config.tableClass }} alert-table" style="max-width:300px">
+        {% if config.ignoreToday %}
+            {% set alerts = alerts.splice(1) %}
+        {% endif %}
+        {% set alerts = alerts.slice(0, numAlerts) %}
+        {% for a in alerts %}
+            <tr {% if config.colored %} class="colored" {%else%} class="bright" {% endif %}>
+
+                <td class= "align-left {{a.event | alertColorCode}}" ><span>{{a.event}}</span></td>
+                
+                {% if config.showEndTime %}
+                    {% if config.timeFormat === "relative" %}
+                        <td class="bright light">{{ "ends " + a.end.fromNow() | translate }}</td>
+                    {% else %}
+                        <td class="bright light">{{ "until " + a.end.format(config.dateFormat) + " at " + a.end | formatTime }}</td>
+                    {% endif %}
+                {% endif %}
+
+            </tr>
+
+            {% if config.alertDescription.show %}
+                <tr {% if not config.alertDescription.static %} class="ticker-move" {% endif %}>
+                    <td {% if config.alertDescription.static %} class="static-description" {%else%} class="ticker-item" {% endif %} colSpan="2">       
+                        {% if config.alertDescription.showHeader %}
+                            <span>{{a.parsedDescription.header}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showWhat %}
+                            <span>{{a.parsedDescription.what}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showWhere %}
+                            <span>{{a.parsedDescription.where}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showWhen %}
+                            <span>{{a.parsedDescription.when}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showImpacts %}
+                            <span>{{a.parsedDescription.impacts}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showAdditionalDetails %}
+                            <span>{{a.parsedDescription.additionalDetails}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showPrecautionaryActions %}
+                            <span>{{a.parsedDescription.precautionaryActions}}</span>
+                        {% endif %}
+                        {% if config.alertDescription.showOther %}
+                            <span>{{a.parsedDescription.other}}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% set currentAlert = currentAlert + 1 %}
+        {% endfor %}
+    </table>
+
+{% else %}
+    <div class="dimmed light small">
+        {{ "LOADING" | translate }}
+    </div>
+{% endif %}
+
+<!-- Uncomment the line below to see the contents of the `alerts` object. -->
+<!-- <div style="word-wrap:break-word" class="xsmall dimmed">{{alerts | dump}}</div> -->

@@ -1,0 +1,181 @@
+/*
+ *
+ * {MMM-WeatherAlerts}
+ *
+ * {Gary Jones}
+ * {{LICENSE}} Licensed.
+ *
+ * 
+ *
+ */
+
+ .static-description {
+     white-space: normal;
+     padding: 5px;
+     text-align: left;
+ }
+
+ .alert-table {
+     table-layout: auto;
+     white-space: nowrap;
+     overflow: hidden;
+ }
+
+ .alert-table td {
+     /* border: 1px solid green; */
+ }
+
+ .ticker-wrap {
+    /* display: inline-block; */
+    width: inherit;
+    max-width: 250px;
+    /* overflow: hidden; */
+    background: black;
+    /* color: white; */
+  }
+  
+  .ticker-item {
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* width: 100%; */
+    box-sizing: border-box;
+    font-size: medium;
+    animation-name: ticker;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes ticker {
+    0% {
+      transform: translate3d(100%, 0, 0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+ 
+ tr.colored .tsunami-warning {color: #FD6347;}
+ tr.colored .tornado-warning {color: #FF0000;}
+ tr.colored .extreme-wind-warning {color: #FF8C00;}
+ tr.colored .severe-thunderstorm-warning {color: #FFA500;}
+ tr.colored .flash-flood-warning {color: #8B0000;}
+ tr.colored .flash-flood-statement {color: #8B0000;}
+ tr.colored .severe-weather-statement {color: #00FFFF;}
+ tr.colored .shelter-in-place-warning {color: #FA8072;}
+ tr.colored .evacuation-immediate {color: #7FFF00;}
+ tr.colored .civil-danger-warning {color: #FFB6C1;}
+ tr.colored .nuclear-power-plant-warning {color: #4B0082;}
+ tr.colored .radiological-hazard-warning {color: #4B0082;}
+ tr.colored .hazardous-materials-warning {color: #4B0082;}
+ tr.colored .fire-warning {color: #A0522D;}
+ tr.colored .civil-emergency-message {color: #FFB6C1;}
+ tr.colored .law-enforcement-warning {color: #C0C0C0;}
+ tr.colored .storm-surge-warning {color: #B524F7;}
+ tr.colored .hurricane-force-wind-warning {color: #CD5C5C;}
+ tr.colored .hurricane-warning {color: #DC143C;}
+ tr.colored .typhoon-warning {color: #DC143C;}
+ tr.colored .special-marine-warning {color: #FFA500;}
+ tr.colored .blizzard-warning {color: #FF4500;}
+ tr.colored .snow-squall-warning {color: #C71585;}
+ tr.colored .ice-storm-warning {color: #8B008B;}
+ tr.colored .winter-storm-warning {color: #FF69B4;}
+ tr.colored .high-wind-warning {color: #DAA520;}
+ tr.colored .tropical-storm-warning {color: #B22222;}
+ tr.colored .storm-warning {color: #9400D3;}
+ tr.colored .tsunami-advisory {color: #D2691E;}
+ tr.colored .tsunami-watch {color: #FF00FF;}
+ tr.colored .avalanche-warning {color: #1E90FF;}
+ tr.colored .earthquake-warning {color: #8B4513;}
+ tr.colored .volcano-warning {color: #2F4F4F;}
+ tr.colored .ashfall-warning {color: #A9A9A9;}
+ tr.colored .coastal-flood-warning {color: #228B22;}
+ tr.colored .lakeshore-flood-warning {color: #228B22;}
+ tr.colored .flood-warning {color: #00FF00;}
+ tr.colored .high-surf-warning {color: #228B22;}
+ tr.colored .dust-storm-warning {color: #FFE4C4;}
+ tr.colored .blowing-dust-warning {color: #FFE4C4;}
+ tr.colored .lake-effect-snow-warning {color: #008B8B;}
+ tr.colored .excessive-heat-warning {color: #C71585;}
+ tr.colored .tornado-watch {color: #FFFF00;}
+ tr.colored .severe-thunderstorm-watch {color: #DB7093;}
+ tr.colored .flash-flood-watch {color: #2E8B57;}
+ tr.colored .gale-warning {color: #DDA0DD;}
+ tr.colored .flood-statement {color: #00FF00;}
+ tr.colored .wind-chill-warning {color: #B0C4DE;}
+ tr.colored .extreme-cold-warning {color: #0000FF;}
+ tr.colored .hard-freeze-warning {color: #9400D3;}
+ tr.colored .freeze-warning {color: #483D8B;}
+ tr.colored .red-flag-warning {color: #FF1493;}
+ tr.colored .storm-surge-watch {color: #DB7FF7;}
+ tr.colored .hurricane-watch {color: #FF00FF;}
+ tr.colored .hurricane-force-wind-watch {color: #9932CC;}
+ tr.colored .typhoon-watch {color: #FF00FF;}
+ tr.colored .tropical-storm-watch {color: #F08080;}
+ tr.colored .storm-watch {color: #FFE4B5;}
+ tr.colored .hurricane-local-statement {color: #FFE4B5;}
+ tr.colored .typhoon-local-statement {color: #FFE4B5;}
+ tr.colored .tropical-storm-local-statement {color: #FFE4B5;}
+ tr.colored .tropical-depression-local-statement {color: #FFE4B5;}
+ tr.colored .avalanche-advisory {color: #CD853F;}
+ tr.colored .winter-weather-advisory {color: #7B68EE;}
+ tr.colored .wind-chill-advisory {color: #AFEEEE;}
+ tr.colored .heat-advisory {color: #FF7F50;}
+ tr.colored .urban-and-small-stream-flood-advisory {color: #00FF7F;}
+ tr.colored .small-stream-flood-advisory {color: #00FF7F;}
+ tr.colored .arroyo-and-small-stream-flood-advisory {color: #00FF7F;}
+ tr.colored .flood-advisory {color: #00FF7F;}
+ tr.colored .hydrologic-advisory {color: #00FF7F;}
+ tr.colored .lakeshore-flood-advisory {color: #7CFC00;}
+ tr.colored .coastal-flood-advisory {color: #7CFC00;}
+ tr.colored .high-surf-advisory {color: #BA55D3;}
+ tr.colored .heavy-freezing-spray-warning {color: #00BFFF;}
+ tr.colored .dense-fog-advisory {color: #708090;}
+ tr.colored .dense-smoke-advisory {color: #F0E68C;}
+ tr.colored .small-craft-advisory {color: #D8BFD8;}
+ tr.colored .brisk-wind-advisory {color: #D8BFD8;}
+ tr.colored .hazardous-seas-warning {color: #D8BFD8;}
+ tr.colored .dust-advisory {color: #BDB76B;}
+ tr.colored .blowing-dust-advisory {color: #BDB76B;}
+ tr.colored .lake-wind-advisory {color: #D2B48C;}
+ tr.colored .wind-advisory {color: #D2B48C;}
+ tr.colored .frost-advisory {color: #6495ED;}
+ tr.colored .ashfall-advisory {color: #696969;}
+ tr.colored .freezing-fog-advisory {color: #008080;}
+ tr.colored .freezing-spray-advisory {color: #00BFFF;}
+ tr.colored .low-water-advisory {color: #A52A2A;}
+ tr.colored .local-area-emergency {color: #C0C0C0;}
+ tr.colored .avalanche-watch {color: #F4A460;}
+ tr.colored .blizzard-watch {color: #ADFF2F;}
+ tr.colored .rip-current-statement {color: #40E0D0;}
+ tr.colored .beach-hazards-statement {color: #40E0D0;}
+ tr.colored .gale-watch {color: #FFC0CB;}
+ tr.colored .winter-storm-watch {color: #4682B4;}
+ tr.colored .hazardous-seas-watch {color: #483D8B;}
+ tr.colored .heavy-freezing-spray-watch {color: #BC8F8F;}
+ tr.colored .coastal-flood-watch {color: #66CDAA;}
+ tr.colored .lakeshore-flood-watch {color: #66CDAA;}
+ tr.colored .flood-watch {color: #2E8B57;}
+ tr.colored .high-wind-watch {color: #B8860B;}
+ tr.colored .excessive-heat-watch {color: #800000;}
+ tr.colored .extreme-cold-watch {color: #0000FF;}
+ tr.colored .wind-chill-watch {color: #5F9EA0;}
+ tr.colored .lake-effect-snow-watch {color: #87CEFA;}
+ tr.colored .hard-freeze-watch {color: #4169E1;}
+ tr.colored .freeze-watch {color: #00FFFF;}
+ tr.colored .fire-weather-watch {color: #FFDEAD;}
+ tr.colored .extreme-fire-danger {color: #E9967A;}
+ tr.colored ._911-telephone-outage {color: #C0C0C0;}
+ tr.colored .coastal-flood-statement {color: #6B8E23;}
+ tr.colored .lakeshore-flood-statement {color: #6B8E23;}
+ tr.colored .special-weather-statement {color: #FFE4B5;}
+ tr.colored .marine-weather-statement {color: #FFDAB9;}
+ tr.colored .air-quality-alert {color: #808080;}
+ tr.colored .air-stagnation-advisory {color: #808080;}
+ tr.colored .hazardous-weather-outlook {color: #EEE8AA;}
+ tr.colored .hydrologic-outlook {color: #90EE90;}
+ tr.colored .short-term-forecast {color: #98FB98;}
+ tr.colored .administrative-message {color: #C0C0C0;}
+ tr.colored .test {color: #F0FFFF;}
+ tr.colored .child-abduction-emergency {color: #FFFFFF;}
+ tr.colored .blue-alert {color: #FFFFFF;}
