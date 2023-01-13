@@ -1,11 +1,29 @@
-# MagicMirror-Module-Template
-This is a module to help developers to start building their own modules for the [MagicMirror](https://github.com/MichMich/MagicMirror). 
+# MMM-WeatherAlerts
+This is a module for [MagicMirror](https://github.com/MichMich/MagicMirror). 
 
-There samples of code for:
-- External request
-- Config parameters
-- Custom URL path route
-- Passing of messages (NOTIFICATIONS)
+Displays active weather alerts as distributed by the [openweathermap onecall API](https://openweathermap.org/api/one-call-3).
+
+OpenWeatherMap currently advertises version 3.0 of their onecall API which requires a subscription, but this module is compatible with older, non-subscription versions of the onecall API (e.g. version 2.5).
+
+  There samples of code for:
+  - External request
+  - Config parameters
+  - Custom URL path route
+  - Passing of messages (NOTIFICATIONS)
+
+# Example
+
+# Usage
+
+To install this module via CLI, navigate into ~/MagicMirror/modules and type the following commands:
+
+git clone https://github.com/gjonesme/MMM-WeatherAlerts
+cd MMM-WeatherAlerts
+npm install
+
+
+# Configuration Options
+
 
 Also this module include tasks for checking your code. For that you need install the developer dependencies.
 
