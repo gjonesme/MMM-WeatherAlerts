@@ -1,7 +1,7 @@
 # MMM-WeatherAlerts
 This is a module for [MagicMirror](https://github.com/MichMich/MagicMirror). 
 
-Displays active weather alerts as provided by the [openweathermap onecall API](https://openweathermap.org/api/one-call-3).
+Displays active weather alerts as provided by the [openweathermap onecall API](https://openweathermap.org/api/one-call-3). Module will not be visible when no alerts are active.
 
 OpenWeatherMap currently advertises version 3.0 of their onecall API which requires a subscription, but this module is compatible with older, non-subscription versions of the onecall API (e.g. version 2.5).
 
