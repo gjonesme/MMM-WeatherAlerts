@@ -4,7 +4,8 @@
     <table class="{{ config.tableClass }} alert-table" style="max-width:300px">
         {% if config.ignoreToday %}
             {% set alerts = alerts.splice(1) %}
-        {% endif %}
+        {% endif %}        
+
         {% set alerts = alerts.slice(0, numAlerts) %}
         {% for a in alerts %}
             <tr {% if config.colored %} class="colored" {%else%} class="bright" {% endif %}>
@@ -12,42 +13,21 @@
                 <td class= "align-left {{a.event | alertColorCode}}" ><span>{{a.event}}</span></td>
                 
                 {% if config.showEndTime %}
-                    {% if config.timeFormat === "relative" %}
+                    {% if config.alertTimeFormat === "relative" %}
                         <td class="bright light">{{ "ends " + a.end.fromNow() | translate }}</td>
                     {% else %}
-                        <td class="bright light">{{ "until " + a.end.format(config.dateFormat) + " at " + a.end | formatTime }}</td>
+                        <td class="bright light">{{ "until " + a.end.format(config.alertDateFormat) + " at " + a.end | formatTime }}</td>
                     {% endif %}
                 {% endif %}
 
             </tr>
 
-            {% if config.alertDescription.show %}
-                <tr {% if not config.alertDescription.static %} class="ticker-move" {% endif %}>
-                    <td {% if config.alertDescription.static %} class="static-description" {%else%} class="ticker-item" {% endif %} colSpan="2">       
-                        {% if config.alertDescription.showHeader %}
-                            <span>{{a.parsedDescription.header}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showWhat %}
-                            <span>{{a.parsedDescription.what}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showWhere %}
-                            <span>{{a.parsedDescription.where}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showWhen %}
-                            <span>{{a.parsedDescription.when}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showImpacts %}
-                            <span>{{a.parsedDescription.impacts}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showAdditionalDetails %}
-                            <span>{{a.parsedDescription.additionalDetails}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showPrecautionaryActions %}
-                            <span>{{a.parsedDescription.precautionaryActions}}</span>
-                        {% endif %}
-                        {% if config.alertDescription.showOther %}
-                            <span>{{a.parsedDescription.other}}</span>
-                        {% endif %}
+            {% if config.showAlertDescription %}
+                <tr>
+                    <td {% if config.staticAlertDescription %} class="static-description" {%else%} {% endif %} colSpan="2">       
+                        {% if not config.staticAlertDescription %} <marquee scrolldelay={{config.alertDescriptionScrollDelay}}}}> {% endif %}
+                            <span>{{a.description}}</span>
+                        {% if not config.alertDescription.static %} </marquee> {% endif %}
                     </td>
                 </tr>
             {% endif %}

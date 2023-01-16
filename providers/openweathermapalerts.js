@@ -50,66 +50,46 @@ WeatherAlertProvider.register("openweathermapalerts", {
 
 
 	// Overwrite the fetchCurrentWeather method.
-	fetchCurrentWeather() {
-		this.fetchData(this.getUrl())
-			.then((data) => {
-				let currentWeather;
-				if (this.config.weatherEndpoint === "/onecall") {
-					currentWeather = this.generateWeatherObjectsFromOnecall(data).current;
-					this.setFetchedLocation(`${data.timezone}`);
-				} else {
-					currentWeather = this.generateWeatherObjectFromCurrentWeather(data);
-				}
-				this.setCurrentWeather(currentWeather);
-			})
-			.catch(function (request) {
-				Log.error("Could not load data ... ", request);
-			})
-			.finally(() => this.updateAvailable());
-	},
-
-	// Overwrite the fetchWeatherForecast method.
-	fetchWeatherForecast() {
-		this.fetchData(this.getUrl())
-			.then((data) => {
-				let forecast;
-				let location;
-				if (this.config.weatherEndpoint === "/onecall") {
-					forecast = this.generateWeatherObjectsFromOnecall(data).days;
-					location = `${data.timezone}`;
-				} else {
-					forecast = this.generateWeatherObjectsFromForecast(data.list);
-					location = `${data.city.name}, ${data.city.country}`;
-				}
-				this.setWeatherForecast(forecast);
-				this.setFetchedLocation(location);
-			})
-			.catch(function (request) {
-				Log.error("Could not load data ... ", request);
-			})
-			.finally(() => this.updateAvailable());
-	},
-
-	// Overwrite the fetchWeatherHourly method.
-	// fetchWeatherHourly() {
+	// fetchCurrentWeather() {
 	// 	this.fetchData(this.getUrl())
 	// 		.then((data) => {
-	// 			if (!data) {
-	// 				// Did not receive usable new data.
-	// 				// Maybe this needs a better check?
-	// 				return;
+	// 			let currentWeather;
+	// 			if (this.config.weatherEndpoint === "/onecall") {
+	// 				currentWeather = this.generateWeatherObjectsFromOnecall(data).current;
+	// 				this.setFetchedLocation(`${data.timezone}`);
+	// 			} else {
+	// 				currentWeather = this.generateWeatherObjectFromCurrentWeather(data);
 	// 			}
-
-	// 			this.setFetchedLocation(`(${data.lat},${data.lon})`);
-
-	// 			const weatherData = this.generateWeatherObjectsFromOnecall(data);
-	// 			this.setWeatherHourly(weatherData.hours);
+	// 			this.setCurrentWeather(currentWeather);
 	// 		})
 	// 		.catch(function (request) {
 	// 			Log.error("Could not load data ... ", request);
 	// 		})
 	// 		.finally(() => this.updateAvailable());
 	// },
+
+	// Overwrite the fetchWeatherForecast method.
+	// fetchWeatherForecast() {
+	// 	this.fetchData(this.getUrl())
+	// 		.then((data) => {
+	// 			let forecast;
+	// 			let location;
+	// 			if (this.config.weatherEndpoint === "/onecall") {
+	// 				forecast = this.generateWeatherObjectsFromOnecall(data).days;
+	// 				location = `${data.timezone}`;
+	// 			} else {
+	// 				forecast = this.generateWeatherObjectsFromForecast(data.list);
+	// 				location = `${data.city.name}, ${data.city.country}`;
+	// 			}
+	// 			this.setWeatherForecast(forecast);
+	// 			this.setFetchedLocation(location);
+	// 		})
+	// 		.catch(function (request) {
+	// 			Log.error("Could not load data ... ", request);
+	// 		})
+	// 		.finally(() => this.updateAvailable());
+	// },
+
 
 	/**
 	 * Overrides method for setting config to check if endpoint is correct for hourly
