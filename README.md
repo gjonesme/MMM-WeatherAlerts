@@ -8,6 +8,8 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 # Example
 
+![Example image 1]("/images/MMM-WeatherAlerts-default_example.png")
+
 # Installation
 
 To install this module via CLI, navigate into ~/MagicMirror/modules and type the following commands:
@@ -32,7 +34,9 @@ modules: [
     header: "Weather Alerts",
     config: {
       // See 'Configuration options' for more information.
-      type: "alerts",
+      lat: "yourLatitude",
+      lon: "yourLongitude",
+      apiKey: "yourOpenWeatherMapApiKey"
     },
   },
 ];
@@ -56,19 +60,54 @@ The following properties can be configured:
 		<tr>
 			<td><code>weatherAlertProvider</code></td>
 			<td>Which weather alert provider to be used.<br>
-				<br><b>Possible values:</b> <code>openweathermapalerts</code>
-				<br><b>Default value:</b> <code>openweathermapalerts</code>
-				<br><b>Note:</b> Setup to have the same flexibility as the core weather module, currenly only OpenWeatherMap is implemented.
+				<br><b>Possible values:</b> <code>'openweathermapalerts'</code>
+				<br><b>Default value:</b> <code>'openweathermapalerts'</code>
+				<br>
+				<br><b>Note:</b> Setup to have the same flexibility as the core weather module, currently only OpenWeatherMap is implemented.
+			</td>
+		</tr>
+		<tr>
+			<td><code>weatherEndpoint</code></td>
+			<td>The OpenWeatherMap API endPoint.<br>
+				<br><b>Possible values:</b> <code>'/onecall'</code>
+				<br><b>Default value:</b> <code>'/onecall'</code>
+				<br>
+				<br><b>Note:</b> Must be set to <code>'/onecall'</code> in order to access alert info.
 			</td>
 		</tr>
 		<tr>
 			<td><code>type</code></td>
 			<td>Which type of weather data should be displayed.<br>
-				<br><b>Possible values:</b> <code>alerts</code>
-				<br><b>Default value:</b> <code>alerts</code>
+				<br><b>Possible values:</b> <code>'alerts'</code>
+				<br><b>Default value:</b> <code>'alerts'</code>
 			</td>
 		</tr>
-    		<tr>
+		<tr>
+			<td><code>lat</code></td>
+			<td>Latitude of the location used for weather information.<br>
+				<br><b>Possible values:</b> <code>"38.9332"</code>
+				<br><b>Default value:</b> <code>0</code>
+				<br>
+				<br>Note: Latitude and longitude are REQUIRED since weatherEndpoint is set to '/onecall'.
+			</td>
+		</tr>
+		<tr>
+			<td><code>lon</code></td>
+			<td>Longitude of the location used for weather information.<br>
+				<br><b>Example:</b> <code>"-119.9844"</code>
+				<br><b>Default value:</b> <code>0</code>
+				<br>
+				<br>Note: Latitude and longitude are REQUIRED since weatherEndpoint is set to '/onecall'.
+			</td>
+		</tr>
+		<tr>
+			<td><code>apiKey</code></td>
+			<td>The <a href="https://home.openweathermap.org/">OpenWeatherMap</a> API key, which can be obtained by creating an OpenWeatherMap account.<br>
+				<br>
+				<br>This value is <b>REQUIRED</b>
+			</td>
+		</tr>
+		<tr>
 			<td><code>updateInterval</code></td>
 			<td>How often does the content need to be fetched? (milliseconds)<br>
 				<br><b>Possible values:</b> <code>1000</code> - <code>86400000</code>
