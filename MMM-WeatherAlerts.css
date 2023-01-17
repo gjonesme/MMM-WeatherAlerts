@@ -13,6 +13,7 @@
   table-layout: auto;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 150px;
 }
 
 .static-description {

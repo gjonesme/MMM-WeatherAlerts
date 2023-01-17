@@ -64,7 +64,6 @@ Module.register("MMM-WeatherAlerts", {
     return [
       "moment.js",
       this.file("../default/utils.js"),
-      "weatherutils.js",
       "weatheralertobject.js",
       "weatheralertprovider.js",
       this.file(
@@ -175,9 +174,6 @@ Module.register("MMM-WeatherAlerts", {
     // }
 
     const notificationPayload = {
-      // currentWeather: this.weatherAlertProvider?.currentWeatherObject?.simpleClone() ?? null,
-      // forecastArray: this.weatherAlertProvider?.weatherForecastArray?.map((ar) => ar.simpleClone()) ?? [],
-      // hourlyArray: this.weatherAlertProvider?.weatherHourlyArray?.map((ar) => ar.simpleClone()) ?? [],
       currentWeatherAlerts:
         this.weatherAlertProvider?.currentWeatherAlertsObject?.map((ar) =>
           ar.simpleClone()
@@ -234,52 +230,6 @@ Module.register("MMM-WeatherAlerts", {
         }
 
         return date.format("HH:mm");
-      }.bind(this)
-    );
-
-    this.nunjucksEnvironment().addFilter(
-      "unit",
-      function (value, type) {
-        if (type === "temperature") {
-          value =
-            this.roundValue(
-              WeatherUtils.convertTemp(value, this.config.tempUnits)
-            ) + "°";
-          if (this.config.degreeLabel) {
-            if (this.config.tempUnits === "metric") {
-              value += "C";
-            } else if (this.config.tempUnits === "imperial") {
-              value += "F";
-            } else {
-              value += "K";
-            }
-          }
-        } else if (type === "precip") {
-          if (
-            value === null ||
-            isNaN(value) ||
-            value === 0 ||
-            value.toFixed(2) === "0.00"
-          ) {
-            value = "";
-          } else {
-            if (
-              this.config.weatherAlertProvider === "ukmetoffice" ||
-              this.config.weatherAlertProvider === "ukmetofficedatahub"
-            ) {
-              value += "%";
-            } else {
-              value = `${value.toFixed(2)} ${
-                this.config.units === "imperial" ? "in" : "mm"
-              }`;
-            }
-          }
-        } else if (type === "humidity") {
-          value += "%";
-        } else if (type === "wind") {
-          value = WeatherUtils.convertWind(value, this.config.windUnits);
-        }
-        return value;
       }.bind(this)
     );
 

@@ -1,7 +1,7 @@
 {% if alerts %}
 {% set numAlerts = alerts | calcNumAlerts %}
     {% set currentAlert = 0 %}
-    <table class="{{ config.tableClass }} alert-table" style="max-width:300px">
+    <table class="{{ config.tableClass }} alert-table">
         {% if config.ignoreToday %}
             {% set alerts = alerts.splice(1) %}
         {% endif %}        
@@ -14,9 +14,9 @@
                 
                 {% if config.showEndTime %}
                     {% if config.alertTimeFormat === "relative" %}
-                        <td class="bright light">{{ "ends " + a.end.fromNow() | translate }}</td>
+                        <td class="bright light align-right">{{ "ends " + a.end.fromNow() | translate }}</td>
                     {% else %}
-                        <td class="bright light">{{ "until " + a.end.format(config.alertDateFormat) + " at " + a.end | formatTime }}</td>
+                        <td class="bright light align-right">{{ "until " + a.end.format(config.alertDateFormat) + " at " + a.end | formatTime }}</td>
                     {% endif %}
                 {% endif %}
 
