@@ -8,7 +8,7 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 # Example
 
-![Example image 1]("/images/MMM-WeatherAlerts-default_example.png")
+![Example image 1]("https://github.com/gjonesme/MMM-WeatherAlerts/images/MMM-WeatherAlerts-default_example.png")
 
 # Installation
 
