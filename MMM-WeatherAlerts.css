@@ -1,9 +1,9 @@
 /*
  *
- * {MMM-WeatherAlerts}
+ * Module: MMM-WeatherAlerts
  *
- * {Gary Jones}
- * {{LICENSE}} Licensed.
+ * Gary Jones
+ * MIT Licensed.
  *
  *
  *
@@ -461,6 +461,7 @@ tr.colored .extreme-fire-danger {
   color: #e9967a;
 }
 
+/* stylelint-disable-next-line selector-class-pattern */
 tr.colored ._911-telephone-outage {
   color: #c0c0c0;
 }

@@ -1,7 +1,7 @@
 /* global Module */
 
 /* Magic Mirror
- * Module: {MMM-WeatherAlerts}
+ * Module: MMM-WeatherAlerts
  *
  * By Gary Jones
  * MIT Licensed.
@@ -41,8 +41,8 @@ Module.register("MMM-WeatherAlerts", {
       showImpacts: true,
       showAdditionalDetails: true,
       showPrecautionaryActions: true,
-      showOther: true
-    }
+      showOther: true,
+    },
   },
 
   // requiresVersion: "2.22.0", // Required version of MagicMirror
@@ -69,7 +69,7 @@ Module.register("MMM-WeatherAlerts", {
       "weatheralertprovider.js",
       this.file(
         "providers/" + this.config.weatherAlertProvider.toLowerCase() + ".js"
-      )
+      ),
     ];
   },
 
@@ -160,11 +160,7 @@ Module.register("MMM-WeatherAlerts", {
   getTemplateData: function () {
     return {
       config: this.config,
-      alerts: this.weatherAlertProvider.currentWeatherAlerts()
-      // indoor: {
-      // 	humidity: this.indoorHumidity,
-      // 	temperature: this.indoorTemperature
-      // }
+      alerts: this.weatherAlertProvider.currentWeatherAlerts(),
     };
   },
 
@@ -187,7 +183,7 @@ Module.register("MMM-WeatherAlerts", {
           ar.simpleClone()
         ) ?? [],
       locationName: this.weatherAlertProvider?.fetchedLocationName,
-      providerName: this.weatherAlertProvider.providerName
+      providerName: this.weatherAlertProvider.providerName,
     };
 
     //need to add alerts to the notification payload...
@@ -355,5 +351,5 @@ Module.register("MMM-WeatherAlerts", {
         }
       }.bind(this)
     );
-  }
+  },
 });
