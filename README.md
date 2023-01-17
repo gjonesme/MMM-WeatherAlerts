@@ -8,7 +8,9 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 # Example
 
-![Example image 1]("https://github.com/gjonesme/MMM-WeatherAlerts/images/MMM-WeatherAlerts-default_example.png")
+![Example image 1](/images/MMM-WeatherAlerts-default_example.png)
+
+![Example image 2](/images/MMM-WeatherAlerts-example2.gif)
 
 # Installation
 
@@ -85,7 +87,7 @@ The following properties can be configured:
 		<tr>
 			<td><code>lat</code></td>
 			<td>Latitude of the location used for weather information.<br>
-				<br><b>Possible values:</b> <code>"38.9332"</code>
+				<br><b>Example:</b> <code>"38.9332"</code>
 				<br><b>Default value:</b> <code>0</code>
 				<br>
 				<br>Note: Latitude and longitude are REQUIRED since weatherEndpoint is set to '/onecall'.
@@ -242,10 +244,4 @@ The following properties can be configured:
 
 
 
-Current Tests:
-- [ESLint](http://eslint.org/) for linting the javascript
-- [stylelint](https://stylelint.io/) for linting the CSS with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) as its base
-- [jsonlint](https://github.com/zaach/jsonlint) for linting the translation files
-- [markdownlint](https://github.com/DavidAnson/markdownlint) for checking the markdown files (`README.md`, `CHANGELOG.md`, `LICENSE.txt`)
-- [js-yaml](https://github.com/nodeca/js-yaml) to lint the `.travis.yml` (run through [grunt-yamllint](https://github.com/geedew/grunt-yamllint))
 
