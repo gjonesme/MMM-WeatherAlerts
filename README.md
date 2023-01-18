@@ -14,7 +14,7 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 # Installation
 
-To install this module via CLI, navigate into ~/MagicMirror/modules and type the following commands:
+To install this module via CLI, navigate into `~/MagicMirror/modules` and type the following commands:
 
 ```
 git clone https://github.com/gjonesme/MMM-WeatherAlerts
@@ -242,6 +242,8 @@ The following properties can be configured:
   </tbody>
 </table>
 
+## Other Notes and Considerations
 
+This module is set to only display when a weather alert is active/available from the OpenWeatherMap onecall API. If no alerts are active, then the module will not be visible. If your location does not currently have an active weather alert, then you can test the module by changing your lat/lon to a location with an active alert. The U.S. pretty much always has some [active alerts](https://alerts.weather.gov/cap/us.php?x=1)
 
 
