@@ -63,7 +63,7 @@ Module.register("MMM-WeatherAlerts", {
     Log.info(this.config.weatherAlertProvider);
     return [
       "moment.js",
-      this.file("../default/utils.js"),
+      // this.file("../default/utils.js"),
       "weatheralertobject.js",
       "weatheralertprovider.js",
       this.file(
