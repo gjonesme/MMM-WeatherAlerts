@@ -20,7 +20,7 @@ fi
 
 # check if a directory is the MM directory (checks for correct content of package.json)
 is_mm_directory() {
-	TEST_STRING="\"url\": \"git+https://github.com/MichMich/MagicMirror.git\""
+	TEST_STRING="\"url\": \"git+https://github.com/MagicMirrorOrg/MagicMirror.git\""
 	if grep -sq "$TEST_STRING" "$1/package.json"; then
 		# it is correct
 		return 0
