@@ -24,6 +24,14 @@ git clone https://github.com/gjonesme/MMM-WeatherAlerts
 cd MMM-WeatherAlerts && npm install
 ```
 
+# Update
+
+```
+cd ~/MagicMirror/modules/MMM-WeatherAlerts
+git pull
+npm install
+```
+
 # Usage
 
 To use this module, add it to the modules array in the config/config.js file:
