@@ -42,6 +42,6 @@ module.exports = NodeHelper.create({
 
 	// Test another function
 	anotherFunction: function() {
-		return {date: new Date()};
+		return {date: new Date(Date.now())};
 	}
 });
