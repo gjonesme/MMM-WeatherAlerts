@@ -12,7 +12,7 @@
     "MagicMirror²",
     "Weather",
     "Alerts",
-    "OpenWeatherMap",
+    "OpenWeatherMap"
   ],
   "scripts": {
     "test": "./node_modules/grunt/bin/grunt"
