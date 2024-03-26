@@ -36,7 +36,7 @@ npm install
 
 To use this module, add it to the modules array in the config/config.js file:
 
-```bash
+```js
 modules: [
   {
     module: "MMM-WeatherAlerts",
