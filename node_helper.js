@@ -1,4 +1,4 @@
-/* Magic Mirror
+/* MagicMirror²
  * Node Helper: {{MODULE_NAME}}
  *
  * By {{AUTHOR_NAME}}
@@ -42,6 +42,6 @@ module.exports = NodeHelper.create({
 
 	// Test another function
 	anotherFunction: function() {
-		return {date: new Date()};
+		return {date: new Date(Date.now())};
 	}
 });

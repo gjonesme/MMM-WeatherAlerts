@@ -1,5 +1,5 @@
 # MMM-WeatherAlerts
-This is a module for [MagicMirror](https://github.com/MichMich/MagicMirror). 
+This is a module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror). 
 
 Displays active weather alerts as provided by the [openweathermap onecall API](https://openweathermap.org/api/one-call-3). Module will not be visible when no alerts are active.
 
@@ -16,19 +16,27 @@ OpenWeatherMap currently advertises version 3.0 of their onecall API which requi
 
 To install this module via CLI, navigate into `~/MagicMirror/modules` and type the following commands:
 
-```
+```bash
 git clone https://github.com/gjonesme/MMM-WeatherAlerts
 ```
 
-```
+```bash
 cd MMM-WeatherAlerts && npm install
+```
+
+# Update
+
+```bash
+cd ~/MagicMirror/modules/MMM-WeatherAlerts
+git pull
+npm install
 ```
 
 # Usage
 
 To use this module, add it to the modules array in the config/config.js file:
 
-```
+```js
 modules: [
   {
     module: "MMM-WeatherAlerts",
